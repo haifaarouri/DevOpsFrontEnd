@@ -25753,7 +25753,7 @@ dl li {
 
 .tooltip-static-demo .bs-tooltip-right-demo .arrow:before,
 .tooltip-static-demo .bs-tooltip-left-demo .arrow:before {
-  top: calc((100%-0.8rem)/2);
+  /*top: calc((100%-0.8rem)/2);*/
 }
 
 .tooltip {
