@@ -1,0 +1,136 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "Twin4Project": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/twin4-project",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css",
+              "src/assets/vendors/feather/feather.css",
+              "src/assets/vendors/mdi/css/materialdesignicons.min.css",
+              "src/assets/vendors/ti-icons/css/themify-icons.css",
+              "src/assets/vendors/typicons/typicons.css",
+              "src/assets/vendors/simple-line-icons/css/simple-line-icons.css",
+              "src/assets/vendors/css/vendor.bundle.base.css",
+              "src/assets/css/vertical-layout-light/style.css"
+            ],
+            "scripts": [
+              "src/assets/vendors/js/vendor.bundle.base.js",
+              "src/assets/vendors/chart.js/Chart.min.js",
+              "src/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js",
+              "src/assets/vendors/progressbar.js/progressbar.min.js",
+              "src/assets/js/off-canvas.js",
+              "src/assets/js/hoverable-collapse.js",
+              "src/assets/js/template.js",
+              "src/assets/js/settings.js",
+              "src/assets/js/todolist.js",
+              "src/assets/js/dashboard.js",
+              "src/assets/js/Chart.roundedBarCharts.js",
+              "src/assets/vendors/typeahead.js/typeahead.bundle.min.js",
+              "src/assets/vendors/select2/select2.min.js",
+              "src/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js",
+              "src/assets/js/file-upload.js",
+              "src/assets/js/typeahead.js",
+              "src/assets/js/select2.js",
+              "src/assets/vendors/select2/select2.min.css",
+              "src/assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "Twin4Project:build:production"
+            },
+            "development": {
+              "browserTarget": "Twin4Project:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "Twin4Project:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "Twin4Project"
+}
