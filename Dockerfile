@@ -1,5 +1,5 @@
 FROM node:16.16-alpine AS build
-WORKDIR /dist/src/app
+WORKDIR /dist
 RUN npm cache clean --force
 COPY . .
 RUN npm install --force
